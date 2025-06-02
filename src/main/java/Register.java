@@ -38,16 +38,34 @@ public class Register {
         }while(count>0);
 
         //telefone
-        System.out.println("insira seu telefone:");
-        telefone = scan.next();
 
-        //telefone
+        do {
+            System.out.println("insira seu telefone:");
+            telefone = scan.next();
+            count = em.createQuery("SELECT COUNT(u) FROM Usuario u WHERE u.telefone = :telefone", Long.class)
+                    .setParameter("telefone", telefone)
+                    .getSingleResult();
+            if (count > 0) {
+                System.out.println("esse numero já está em uso!");}
+        }while(count>0);
+
+
+
+        //Data de Nascimento
         System.out.println("insira sua data de nascimento:");
         dataNascimento = scan.next();
 
-        //telefone
-        System.out.println("insira seu cpf:");
-        cpf = scan.next();
+        //CPF
+        do {
+            System.out.println("insira seu CPF:");
+            cpf = scan.next();
+            count = em.createQuery("SELECT COUNT(u) FROM Usuario u WHERE u.cpf = :cpf", Long.class)
+                    .setParameter("cpf", cpf)
+                    .getSingleResult();
+            if (count > 0) {
+                System.out.println("esse CPF já está em uso!");}
+        }while(count>0);
+
 
 
         //Verificação senha
@@ -64,14 +82,15 @@ public class Register {
 
         //Cliente ou Proprietario
         System.out.println("você é cliente ou proprietario?");
-        if (scan.hasNext("c")){
+        String temp = scan.nextLine();
+        if (temp.toLowerCase().contains("c")){
             Cliente newUser = new Cliente(newId, name, email, password, telefone, dataNascimento, cpf);
 
 
             em.getTransaction().begin();
             em.persist(newUser);
             em.getTransaction().commit();
-        } else if(scan.hasNext("p")){
+        } else if(temp.toLowerCase().contains("p")){
 
 
             Proprietario newUser = new Proprietario(newId, name, email, password, telefone, dataNascimento, cpf);

@@ -11,13 +11,13 @@ public class Hospedagem {
     private int id;
     private String nome;
     private String localizacao;
-    private int id_usuario;
+    private int id_proprietario;
 
-    public Hospedagem(int id, String nome, String localizacao, int id_usuario) {
+    public Hospedagem(int id, String nome, String localizacao, int id_proprietario) {
         this.id = id;
         this.nome = nome;
         this.localizacao = localizacao;
-        this.id_usuario =  id_usuario;
+        this.id_proprietario =  id_proprietario;
 
     }
 
