@@ -1,2 +1,24 @@
-package Models;public class Hospedagem {
+package Models;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+
+@Entity
+@Table(name = "Hospedagem")
+public class Hospedagem {
+    @Id
+    private int id;
+    private String nome;
+    private String localizacao;
+    private int id_usuario;
+
+    public Hospedagem(int id, String nome, String localizacao, int id_usuario) {
+        this.id = id;
+        this.nome = nome;
+        this.localizacao = localizacao;
+        this.id_usuario =  id_usuario;
+
+    }
+
 }
