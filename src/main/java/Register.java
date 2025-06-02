@@ -1,6 +1,5 @@
 import jakarta.persistence.EntityManager;
 import Models.Usuario;
-
 import java.util.Objects;
 import java.util.Scanner;
 
@@ -24,7 +23,7 @@ public class Register {
                     .getSingleResult();
             if (count > 0) {    
                 System.out.println("esse email já está em uso!");
-            }else if(!email.contains("@yahoo.com.br") || !email.contains("@gmail.com")){
+            }else if(!email.contains("@yahoo.com.br") && !email.contains("@gmail.com") && !email.contains("@gmail.com")){
                 System.out.println("Insira um email valido");
                 count+=1;
             }
