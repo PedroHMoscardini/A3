@@ -1,3 +1,5 @@
+import Models.Cliente;
+import Models.Proprietario;
 import jakarta.persistence.EntityManager;
 import Models.Usuario;
 import java.util.Objects;
@@ -11,10 +13,16 @@ public class Register {
         String password;
         String passwordConfirmation;
         String email;
+        String telefone;
+        String dataNascimento;
+        String cpf;
         Scanner scan = new Scanner(System.in);
         System.out.println(" -=- Registrar Usuario -=-");
         System.out.print("Digite seu nome:");
         String name = scan.nextLine();
+
+
+        // Verificação email
         do {
             System.out.print("Enter email: ");
             email = scan.nextLine();
@@ -28,7 +36,23 @@ public class Register {
                 count+=1;
             }
         }while(count>0);
+
+        //telefone
+        System.out.println("insira seu telefone:");
+        telefone = scan.next();
+
+        //telefone
+        System.out.println("insira sua data de nascimento:");
+        dataNascimento = scan.next();
+
+        //telefone
+        System.out.println("insira seu cpf:");
+        cpf = scan.next();
+
+
+        //Verificação senha
         do{
+            scan.nextLine();
             System.out.println("insira sua senha:");
             password = scan.nextLine();
             System.out.println("confirme sua senha:");
@@ -36,11 +60,25 @@ public class Register {
         }while(!Objects.equals(password, passwordConfirmation));
         Integer maxId = em.createQuery("SELECT MAX(u.id) FROM Usuario u", Integer.class).getSingleResult();
         int newId = (maxId == null) ? 1 : maxId + 1;
-        Usuario newUser = new Usuario(newId, name, email, password);
 
-        em.getTransaction().begin();
-        em.persist(newUser);
-        em.getTransaction().commit();
+
+        //Cliente ou Proprietario
+        System.out.println("você é cliente ou proprietario?");
+        if (scan.hasNext("c")){
+            Cliente newUser = new Cliente(newId, name, email, password, telefone, dataNascimento, cpf);
+
+
+            em.getTransaction().begin();
+            em.persist(newUser);
+            em.getTransaction().commit();
+        } else if(scan.hasNext("p")){
+
+
+            Proprietario newUser = new Proprietario(newId, name, email, password, telefone, dataNascimento, cpf);
+            em.getTransaction().begin();
+            em.persist(newUser);
+            em.getTransaction().commit();
+        }
 
     }
 }
