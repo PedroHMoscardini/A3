@@ -19,7 +19,8 @@ public class TestTask {
     public static void main(String[] args) {
         emf = Persistence.createEntityManagerFactory("PU");
         EntityManager em = emf.createEntityManager();
-        new Register(em);
+        new Login(em);
+
 
 
     }

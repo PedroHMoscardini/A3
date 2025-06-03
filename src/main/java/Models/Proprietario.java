@@ -12,10 +12,29 @@ public class Proprietario extends Usuario{
     private String cpf;
     private ArrayList historico;
     private int nota = 0;
+
+
+
     public Proprietario(int id, String nome, String email, String senha, String telefone, String dataNascimento, String cpf){
         super(id, nome, email, senha);
         this.telefone = telefone;
         this.dataNascimento = dataNascimento;
         this.cpf = cpf;
+    }
+    public Proprietario() {
+        super();
+    }
+
+    @Override
+    public String toString() {
+        return "Proprietario: \n" +
+                "id: " + getId() + '\n' +
+                "nome: " + getNome() + '\n' +
+                "email: " + getEmail() + '\n' +
+                "telefone: '" + telefone + '\n' +
+                "dataNascimento: " + dataNascimento + '\n' +
+                "cpf: " + cpf + '\n' +
+                "historico: " + historico + '\n' +
+                "nota: " + nota;
     }
 }
