@@ -5,8 +5,8 @@ import Models.Usuario;
 
 import java.util.Scanner;
 /*
- - Login
- - Usuarios
+ -- telas
+
  - Verificar disponibilidade
  - Registro de Hospedagem
 
@@ -19,7 +19,7 @@ public class TestTask {
     public static void main(String[] args) {
         emf = Persistence.createEntityManagerFactory("PU");
         EntityManager em = emf.createEntityManager();
-        new Login(em);
+        new MenuTemp(em);
 
 
 
