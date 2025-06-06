@@ -29,7 +29,7 @@ public class MenuTemp {
                     System.out.println("opção não implementada");
                 }
                 case 2 -> {
-                    System.out.println("opção não implementada");
+                    new CreateHospedagem(loged,em);
                 }
                 case 3 -> {
                     new Register(em);
