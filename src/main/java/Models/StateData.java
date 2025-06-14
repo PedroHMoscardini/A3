@@ -5,7 +5,8 @@ import java.util.Map;
 
 public class StateData {
 
-    public static final HashMap<String, String[]> Estados = new HashMap<>()  static {
+    public static final HashMap<String, String[]> Estados = new HashMap<>();
+    public StateData() {
         Estados.put("Acre (AC)", new String[]{
                 "Rio Branco", "Cruzeiro do Sul", "Sena Madureira", "Tarauacá",
                 "Feijó", "Brasiléia", "Xapuri", "Plácido de Castro",
