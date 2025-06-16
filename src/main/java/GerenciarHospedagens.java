@@ -119,6 +119,7 @@ public class GerenciarHospedagens {
         }
 
     }
- }
+ } else {
+            System.out.println("Logue em uma conta de Proprietario para registrar hospedagens!");
 
 }
