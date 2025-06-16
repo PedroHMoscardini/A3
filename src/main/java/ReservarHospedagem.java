@@ -111,6 +111,7 @@ public class ReservarHospedagem {
             }
             if(mes_saida == -1){
                 System.out.println("mes não indentificado");
+                mes_saida = -1;
             }
         }while (mes_saida == -1);
         do{
