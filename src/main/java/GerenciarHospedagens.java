@@ -11,6 +11,7 @@ public class GerenciarHospedagens {
     Scanner scan = new Scanner(System.in);
     List<Reserva> reservas;
     public GerenciarHospedagens(Usuario loged, EntityManager em){
+        if(loged.getClass() == Proprietario.class){
         while (true){
         List<Hospedagem> hospedagens = em.createQuery( """
                 SELECT h FROM Hospedagem h WHERE h.id_proprietario = :id_proprietario 
@@ -114,7 +115,10 @@ public class GerenciarHospedagens {
          }
 
         }
+
         }
 
     }
+ }
+
 }
