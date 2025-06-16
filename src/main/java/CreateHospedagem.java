@@ -1,7 +1,4 @@
-import Models.Hospedagem;
-import Models.Proprietario;
-import Models.StateData;
-import Models.Usuario;
+import Models.*;
 import jakarta.persistence.EntityManager;
 import org.w3c.dom.Entity;
 

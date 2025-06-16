@@ -24,5 +24,39 @@ public class Hospedagem {
         this.id_proprietario =  id_proprietario;
 
     }
+    public Hospedagem(){
 
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public void setLocalizacao(String localizacao) {
+        this.localizacao = localizacao;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public int getId_estado() {
+        return id_estado;
+    }
+
+    public int getId_cidade() {
+        return id_cidade;
+    }
+
+    public String getLocalizacao() {
+        return localizacao;
+    }
+
+    public int getId_proprietario() {
+        return id_proprietario;
+    }
 }

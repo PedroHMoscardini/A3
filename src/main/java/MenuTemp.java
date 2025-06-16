@@ -26,10 +26,18 @@ public class MenuTemp {
             int selected = scan.nextInt();
             switch (selected) {
                 case 1 -> {
-                    System.out.println("opção não implementada");
+                    if(loged!= null){
+                    new ReservarHospedagem(em,loged);}
+                    else {
+                        System.out.println("faça login para poder reservar hospedagens!");
+                    }
                 }
                 case 2 -> {
-                    new CreateHospedagem(loged,em);
+                    if(loged!= null){
+                    new CreateHospedagem(loged,em);}
+                                        else {
+                        System.out.println("faça login para poder registrar hospedagens!");
+                    }
                 }
                 case 3 -> {
                     new Register(em);
@@ -39,8 +47,13 @@ public class MenuTemp {
                     loged = login.getUser();
                 }
                 case 5 -> {
-                    System.out.println("opção não implementada");
+                    if(loged!= null){
+                        new GerenciarHospedagens(loged,em);}
+                    else {
+                        System.out.println("faça login para poder gerenciar hospedagens!");
+                    }
                 }
+
 
                 case 0 -> {
                     System.exit(0);
