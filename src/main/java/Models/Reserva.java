@@ -25,7 +25,7 @@ public class Reserva {
         this.dia_saida = mes_saida;
         this.id = id;
     }
-
+    public Reserva(){}
     public int getId() {
         return id;
     }

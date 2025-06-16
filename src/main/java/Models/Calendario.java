@@ -20,7 +20,7 @@ public class Calendario {
 
     }
     public static int mesParaNumero(String mes) {
-        mes = mes.toLowerCase(); // Ignora maiúsculas/minúsculas
+        mes = mes.toLowerCase();
 
         switch (mes) {
             case "janeiro": return 1;
@@ -36,7 +36,7 @@ public class Calendario {
             case "outubro": return 10;
             case "novembro": return 11;
             case "dezembro": return 12;
-            default: return -1; // mês inválido
+            default: return -1;
         }
     }
     public static int getMonthLength(int mes){

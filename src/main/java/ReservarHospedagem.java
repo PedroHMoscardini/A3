@@ -92,11 +92,12 @@ public class ReservarHospedagem {
         do{
             System.out.println("qual dia deseja fazer checkin");
             dia_entrada = scan.nextInt();
-            if(dia_entrada <0 || dia_entrada > calendario.getMonthLength(mes_entrada)){
+            if(dia_entrada <0 || dia_entrada > Calendario.getMonthLength(mes_entrada)){
                 System.out.println("dia selecionado não existe");
                 dia_entrada = -1;
             }
         }while (dia_entrada == -1);
+
         System.out.println("qual mês deseja fazer o check-out?");
         do {
             if (scan.hasNextInt()) {
@@ -105,7 +106,7 @@ public class ReservarHospedagem {
                     mes_saida = -1;
                 }
             } else {
-                mes_saida = calendario.mesParaNumero(scan.nextLine().toLowerCase());
+                mes_saida = Calendario.mesParaNumero(scan.nextLine().toLowerCase());
 
             }
             if(mes_saida == -1){
@@ -119,7 +120,7 @@ public class ReservarHospedagem {
                 System.out.println("dia selecionado não existe");
             }
         }while (dia_saida == -1);
-        Integer maxId = em.createQuery("SELECT MAX(u.id) FROM Reservas u", Integer.class).getSingleResult();
+        Integer maxId = em.createQuery("SELECT MAX(u.id) FROM Reserva u", Integer.class).getSingleResult();
         int newId = (maxId == null) ? 1 : maxId + 1;
         Reserva newReserva = new Reserva(loged.getId(),id_hospedagem,dia_entrada,mes_entrada,dia_saida,mes_saida,newId);
         em.getTransaction().begin();

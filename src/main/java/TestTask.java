@@ -5,12 +5,6 @@ import Models.Usuario;
 
 import java.util.Scanner;
 /*
- -- telas
-
- - Verificar disponibilidade
- - Registro de Hospedagem
-
-
 
  */
 public class TestTask {

@@ -38,7 +38,7 @@ public class GerenciarHospedagens {
                 for(Hospedagem h : hospedagens)
                 {
                     this.reservas = em.createQuery( """
-                              SELECT h FROM Reservas h WHERE h.id_hospedagem = :id_hospedagem 
+                              SELECT h FROM Reserva h WHERE h.id_hospedagem = :id_hospedagem 
                                """, Reserva.class)
                             .setParameter("id_hospedagem",h.getId())
                             .getResultList();
@@ -56,6 +56,7 @@ public class GerenciarHospedagens {
                         System.out.printf("hospedagem: " + reservada.getNome() + "%n localização: " + reservada.getLocalizacao() + "%n Cliente: " + cliente.getNome() + "%nDia de check-in: " + r.getDia_entrada() + "/" + r.getMes_entrada() + "%nDia de check-out: " + r.getDia_saida() + "/" + r.getMes_saida() + "%n id da reserva: " +r.getId() + "%n" );
                     }
                 }
+                scan.nextLine();
             }
             case 2:{
                 System.out.println("Qual o id da reserva que deseja remover?");
@@ -74,6 +75,7 @@ public class GerenciarHospedagens {
                 } else{
                     System.out.println("remoção cancelada");
                 }
+                scan.nextLine();
             }
             case 3:{
                 System.out.println("Qual o id da hospedagem que deseja editar?");
@@ -89,6 +91,7 @@ public class GerenciarHospedagens {
                     editHospedagem.setLocalizacao(scan.nextLine());
                     em.getTransaction().begin();
                     em.getTransaction().commit();
+                    scan.nextLine();
                 }
             }
             case 4:{
@@ -102,7 +105,9 @@ public class GerenciarHospedagens {
                     em.getTransaction().begin();
                     em.remove(deleteHospedagem);
                     em.getTransaction().commit();
+
                 }
+                scan.nextLine();
             }
             case 5:{
                 return;
