@@ -8,6 +8,9 @@ public class StateData {
 
     public static final HashMap<String, String[]> Estados = new HashMap<>();
 
+
+
+
     public StateData() {
         Estados.put("Acre (AC)", new String[]{
                 "Rio Branco",
@@ -360,5 +363,10 @@ public class StateData {
                 "Palhoça"
         });
 
+    }
+
+    public static String Translate_id(int id_estado){
+        String[] estadosArray = StateData.Estados.keySet().toArray(new String[0]);
+        return estadosArray[id_estado];
     }
 }
