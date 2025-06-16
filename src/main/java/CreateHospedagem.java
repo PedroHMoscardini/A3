@@ -48,7 +48,7 @@ public class CreateHospedagem {
                 String cidadetemp = scan.nextLine();
                 for (String cidade : cidades) {
 
-                    if(cidade.toLowerCase().contains(cidadetemp.toLowerCase())){
+                    if(cidade.toLowerCase().equals(cidadetemp.toLowerCase())){
                         id_cidade =id_temp;
                     }
                     id_temp++;
